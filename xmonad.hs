@@ -1,0 +1,16 @@
+import XMonad
+import XMonad.Config.Gnome
+import XMonad.Hooks.SetWMName
+
+myManageHook = composeAll (
+    [ manageHook gnomeConfig,
+      className =? "Unity-2d-panel" --> doIgnore,
+      className =? "Unity-2d-launcher" --> doFloat ])
+
+main = xmonad defaultConfig { manageHook         = myManageHook,
+                              startupHook        = setWMName "LG3D", 
+                              focusedBorderColor = "#0A88FF"}
+
+--main = xmonad $ defaultConfig { startupHook = setWMName "LG3D" }
+
+
